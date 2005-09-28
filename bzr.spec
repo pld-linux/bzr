@@ -7,7 +7,7 @@ License:	GPL v2
 Group:		Development/Version Control
 Source0:	http://www.bazaar-ng.org/pkg/%{name}-%{version}.tar.gz
 # Source0-md5:	e6b1e5e561556f29ac00ce00433c9077
-URL:		http://bazaar.canonical.com/Bzr
+URL:		http://www.bazaar-ng.org/
 Requires:	diffutils
 Requires:	patch
 Requires:	tar
