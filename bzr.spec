@@ -1,12 +1,12 @@
 %bcond_with	tests
 Summary:	Bazaar-NG is a changeset oriented revision control system
 Name:		bzr
-Version:	0.0.7
+Version:	0.0.9
 Release:	1
 License:	GPL v2
 Group:		Development/Version Control
 Source0:	http://www.bazaar-ng.org/pkg/%{name}-%{version}.tar.gz
-# Source0-md5:	e4d95bd7f6cdd9eb5bd1a62ec2a45db2
+# Source0-md5:	e6b1e5e561556f29ac00ce00433c9077
 URL:		http://bazaar.canonical.com/Bzr
 Requires:	diffutils
 Requires:	patch
