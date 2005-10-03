@@ -1,5 +1,5 @@
-%bcond_with	tests
-Summary:	Bazaar-NG is a changeset oriented revision control system
+Summary:	Bazaar-NG - a changeset oriented revision control system
+Summary(pl):	Bazaar-NG - system kontroli wersji zorientowany na zestawy zmian
 Name:		bzr
 Version:	0.0.9
 Release:	1
@@ -8,11 +8,11 @@ Group:		Development/Version Control
 Source0:	http://www.bazaar-ng.org/pkg/%{name}-%{version}.tar.gz
 # Source0-md5:	e6b1e5e561556f29ac00ce00433c9077
 URL:		http://www.bazaar-ng.org/
+BuildRequires:	python
+%pyrequires_eq  python
 Requires:	diffutils
 Requires:	patch
 Requires:	tar
-%pyrequires_eq  python
-BuildRequires:	python
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -42,6 +42,31 @@ based upon an authoritive branch of a project, fix one or more things
 and then offer the branch back to the upstream for merging. Bazaar-NG
 also supports the sharing of branches between developers.
 
+%description -l pl
+Bazaar-NG (znany te¿ jako bzr, pó¼niej ma byæ nazwany Bazaar 2) to
+publiczny projekt maj±cy na celu stworzenie wolnodostêpnego
+rozproszonego systemu kontroli wersji bêd±cego potê¿nym, przyjaznym,
+skalowalnym i ³atwym w u¿yciu. System kontroli wersji to narzêdzie
+u¿ywane przez programistów i administratorów systemów do ¶ledzenia
+zmian dokonywanych w plikach w ci±gu czasu. Ponadto system kontroli
+wersji taki jak Bazaar-NG zmniejsza trudno¶ci wspólnej pracy w
+zespo³ach.
+
+Bazaar-NG to system zorientowany na zestawy zmian. Takie systemy
+zbieraj± logicznie powi±zane zmiany w poszczególnych plikach w jedn±
+zwart± grupê zwykle reprezentuj±c± poprawkê b³êdu lub now± w³a¶ciwo¶æ.
+Te zestawy zmian s± ³atwo przesy³ane z jednej ga³êzi do innej poprzez
+proste w u¿yciu polecenia takie jak "bzr pull" i "bzr branch".
+
+Bazaar-NG jest tak¿e rozproszonym systemem kontroli wersji.
+Rozproszony system taki jak Bazaar-NG nie tylko umo¿liwia istnienie w
+projekcie wielu ga³êzi, ale tak¿e pozwala u¿ytkownikom na posiadanie
+prywatnych ga³êzi. Bazaar-NG czyni ³atwym dla u¿ytkownika stworzenie
+ga³êzi opartej na innej ga³êzi, dokonanie zmian i pó¼niejsze
+po³±czenie tych ga³êzi. Co wa¿niejsze, ka¿dy mo¿e stworzyæ now± ga³±¼
+w oparciu o dowoln± ga³±¼ projektu, poprawiæ jedn± lub wiêcej rzeczy i
+zaoferowaæ swoj± ga³±¼ do w³±czenia z powrotem do g³ównego projektu.
+Bazaar-NG obs³uguje tak¿e wspó³dzielenie ga³êzi miêdzy programistami.
 
 %prep
 %setup -q
