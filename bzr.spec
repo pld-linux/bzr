@@ -5,10 +5,12 @@ Version:	0.8.2
 Release:	1
 License:	GPL v2
 Group:		Development/Version Control
-Source0:	http://www.bazaar-ng.org/pkg/%{name}-%{version}.tar.gz
+Source0:	http://bazaar-vcs.org/pkg/%{name}-%{version}.tar.gz
 # Source0-md5:	9bcfcc2a60156a5a74e247846ebe7473
-URL:		http://www.bazaar-ng.org/
+Patch0:		%{name}-FHS.patch
+URL:		http://bazaar-vcs.org/
 BuildRequires:	python
+BuildRequires:	rpmbuild(macros) >= 1.219
 %pyrequires_eq  python
 Requires:	diffutils
 Requires:	patch
@@ -70,17 +72,17 @@ Bazaar-NG obs³uguje tak¿e wspó³dzielenie ga³êzi miêdzy programistami.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 python setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 python setup.py install --optimize=2 \
 	--root=$RPM_BUILD_ROOT
 
-find $RPM_BUILD_ROOT%{py_sitescriptdir} -type f -name "*.py" | xargs rm
+%py_postclean
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -89,4 +91,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc doc/*.txt HACKING NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
+%{_mandir}/man1/bzr.1*
 %{py_sitescriptdir}/bzrlib
