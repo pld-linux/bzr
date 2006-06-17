@@ -5,6 +5,6 @@
        scripts=['bzr'],
        cmdclass={'install_scripts': my_install_scripts, 'build': bzr_build},
 -      data_files=[('man/man1', ['bzr.1'])],
-+      data_files=[('man/share/man1', ['bzr.1'])],
++      data_files=[('share/man/man1', ['bzr.1'])],
      #   todo: install the txt files from bzrlib.doc.api.
       )
