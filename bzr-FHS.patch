@@ -1,10 +1,11 @@
---- bzr-0.8.2/setup.py~	2006-05-17 07:01:47.000000000 +0300
-+++ bzr-0.8.2/setup.py	2006-06-18 01:00:39.166039364 +0300
-@@ -115,6 +115,6 @@
-                 ],
-       scripts=['bzr'],
-       cmdclass={'install_scripts': my_install_scripts, 'build': bzr_build},
--      data_files=[('man/man1', ['bzr.1'])],
-+      data_files=[('share/man/man1', ['bzr.1'])],
-     #   todo: install the txt files from bzrlib.doc.api.
-      )
+--- bzr-0.10/setup.py   2006-09-13 10:27:27 +0000
++++ bzr-0.10/setup.py   2006-09-13 10:29:00 +0000
+@@ -207,7 +207,7 @@
+ else:
+     # std setup
+     ARGS = {'scripts': ['bzr'],
+-            'data_files': [('man/man1', ['bzr.1'])],
++            'data_files': [('share/man/man1', ['bzr.1'])],
+             'cmdclass': {'build': bzr_build,
+                          'install_scripts': my_install_scripts,
+                         },
