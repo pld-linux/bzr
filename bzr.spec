@@ -10,7 +10,7 @@ Source0:	http://bazaar-vcs.org/releases/src/%{name}-%{version}%{_rc}.tar.gz
 # Source0-md5:	bd5f8221b75e6844c147b7a69343bb7b
 Patch0:		%{name}-FHS.patch
 URL:		http://bazaar-vcs.org/
-BuildRequires:	python >= 2.4
+BuildRequires:	python >= 1:2.4
 BuildRequires:	rpmbuild(macros) >= 1.219
 %pyrequires_eq  python
 Requires:	diffutils
