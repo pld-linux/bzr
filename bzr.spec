@@ -1,13 +1,12 @@
-%define		_rc	rc2
 Summary:	Bazaar-NG - a changeset oriented revision control system
 Summary(pl):	Bazaar-NG - system kontroli wersji zorientowany na zestawy zmian
 Name:		bzr
 Version:	0.11
-Release:	0.%{_rc}.1
+Release:	1
 License:	GPL v2
 Group:		Development/Version Control
-Source0:	http://bazaar-vcs.org/releases/src/%{name}-%{version}%{_rc}.tar.gz
-# Source0-md5:	bd5f8221b75e6844c147b7a69343bb7b
+Source0:	http://bazaar-vcs.org/releases/src/%{name}-%{version}.tar.gz
+# Source0-md5:	94fced266d6da6ed298e4738ca7414e0
 Patch0:		%{name}-FHS.patch
 URL:		http://bazaar-vcs.org/
 BuildRequires:	python >= 1:2.4
@@ -72,7 +71,7 @@ zaoferowaæ swoj± ga³±¼ do w³±czenia z powrotem do g³ównego projektu.
 Bazaar-NG obs³uguje tak¿e wspó³dzielenie ga³êzi miêdzy programistami.
 
 %prep
-%setup -q -n %{name}-%{version}%{_rc}
+%setup -q -n %{name}-%{version}
 %patch0 -p1
 
 %build
