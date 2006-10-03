@@ -71,7 +71,7 @@ zaoferowaæ swoj± ga³±¼ do w³±czenia z powrotem do g³ównego projektu.
 Bazaar-NG obs³uguje tak¿e wspó³dzielenie ga³êzi miêdzy programistami.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 %patch0 -p1
 
 %build
