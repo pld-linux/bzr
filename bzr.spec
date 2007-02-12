@@ -1,5 +1,5 @@
 Summary:	Bazaar-NG - a changeset oriented revision control system
-Summary(pl):	Bazaar-NG - system kontroli wersji zorientowany na zestawy zmian
+Summary(pl.UTF-8):   Bazaar-NG - system kontroli wersji zorientowany na zestawy zmian
 Name:		bzr
 Version:	0.14
 Release:	1
@@ -44,31 +44,31 @@ based upon an authoritive branch of a project, fix one or more things
 and then offer the branch back to the upstream for merging. Bazaar-NG
 also supports the sharing of branches between developers.
 
-%description -l pl
-Bazaar-NG (znany te¿ jako bzr, pó¼niej ma byæ nazwany Bazaar 2) to
-publiczny projekt maj±cy na celu stworzenie wolnodostêpnego
-rozproszonego systemu kontroli wersji bêd±cego potê¿nym, przyjaznym,
-skalowalnym i ³atwym w u¿yciu. System kontroli wersji to narzêdzie
-u¿ywane przez programistów i administratorów systemów do ¶ledzenia
-zmian dokonywanych w plikach w ci±gu czasu. Ponadto system kontroli
-wersji taki jak Bazaar-NG zmniejsza trudno¶ci wspólnej pracy w
-zespo³ach.
+%description -l pl.UTF-8
+Bazaar-NG (znany teÅ¼ jako bzr, pÃ³Åºniej ma byÄ‡ nazwany Bazaar 2) to
+publiczny projekt majÄ…cy na celu stworzenie wolnodostÄ™pnego
+rozproszonego systemu kontroli wersji bÄ™dÄ…cego potÄ™Å¼nym, przyjaznym,
+skalowalnym i Å‚atwym w uÅ¼yciu. System kontroli wersji to narzÄ™dzie
+uÅ¼ywane przez programistÃ³w i administratorÃ³w systemÃ³w do Å›ledzenia
+zmian dokonywanych w plikach w ciÄ…gu czasu. Ponadto system kontroli
+wersji taki jak Bazaar-NG zmniejsza trudnoÅ›ci wspÃ³lnej pracy w
+zespoÅ‚ach.
 
 Bazaar-NG to system zorientowany na zestawy zmian. Takie systemy
-zbieraj± logicznie powi±zane zmiany w poszczególnych plikach w jedn±
-zwart± grupê zwykle reprezentuj±c± poprawkê b³êdu lub now± w³a¶ciwo¶æ.
-Te zestawy zmian s± ³atwo przesy³ane z jednej ga³êzi do innej poprzez
-proste w u¿yciu polecenia takie jak "bzr pull" i "bzr branch".
+zbierajÄ… logicznie powiÄ…zane zmiany w poszczegÃ³lnych plikach w jednÄ…
+zwartÄ… grupÄ™ zwykle reprezentujÄ…cÄ… poprawkÄ™ bÅ‚Ä™du lub nowÄ… wÅ‚aÅ›ciwoÅ›Ä‡.
+Te zestawy zmian sÄ… Å‚atwo przesyÅ‚ane z jednej gaÅ‚Ä™zi do innej poprzez
+proste w uÅ¼yciu polecenia takie jak "bzr pull" i "bzr branch".
 
-Bazaar-NG jest tak¿e rozproszonym systemem kontroli wersji.
-Rozproszony system taki jak Bazaar-NG nie tylko umo¿liwia istnienie w
-projekcie wielu ga³êzi, ale tak¿e pozwala u¿ytkownikom na posiadanie
-prywatnych ga³êzi. Bazaar-NG czyni ³atwym dla u¿ytkownika stworzenie
-ga³êzi opartej na innej ga³êzi, dokonanie zmian i pó¼niejsze
-po³±czenie tych ga³êzi. Co wa¿niejsze, ka¿dy mo¿e stworzyæ now± ga³±¼
-w oparciu o dowoln± ga³±¼ projektu, poprawiæ jedn± lub wiêcej rzeczy i
-zaoferowaæ swoj± ga³±¼ do w³±czenia z powrotem do g³ównego projektu.
-Bazaar-NG obs³uguje tak¿e wspó³dzielenie ga³êzi miêdzy programistami.
+Bazaar-NG jest takÅ¼e rozproszonym systemem kontroli wersji.
+Rozproszony system taki jak Bazaar-NG nie tylko umoÅ¼liwia istnienie w
+projekcie wielu gaÅ‚Ä™zi, ale takÅ¼e pozwala uÅ¼ytkownikom na posiadanie
+prywatnych gaÅ‚Ä™zi. Bazaar-NG czyni Å‚atwym dla uÅ¼ytkownika stworzenie
+gaÅ‚Ä™zi opartej na innej gaÅ‚Ä™zi, dokonanie zmian i pÃ³Åºniejsze
+poÅ‚Ä…czenie tych gaÅ‚Ä™zi. Co waÅ¼niejsze, kaÅ¼dy moÅ¼e stworzyÄ‡ nowÄ… gaÅ‚Ä…Åº
+w oparciu o dowolnÄ… gaÅ‚Ä…Åº projektu, poprawiÄ‡ jednÄ… lub wiÄ™cej rzeczy i
+zaoferowaÄ‡ swojÄ… gaÅ‚Ä…Åº do wÅ‚Ä…czenia z powrotem do gÅ‚Ã³wnego projektu.
+Bazaar-NG obsÅ‚uguje takÅ¼e wspÃ³Å‚dzielenie gaÅ‚Ä™zi miÄ™dzy programistami.
 
 %prep
 %setup -q
