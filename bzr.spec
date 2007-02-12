@@ -1,5 +1,5 @@
 Summary:	Bazaar-NG - a changeset oriented revision control system
-Summary(pl.UTF-8):   Bazaar-NG - system kontroli wersji zorientowany na zestawy zmian
+Summary(pl.UTF-8):	Bazaar-NG - system kontroli wersji zorientowany na zestawy zmian
 Name:		bzr
 Version:	0.14
 Release:	1
