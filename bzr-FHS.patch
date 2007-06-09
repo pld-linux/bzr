@@ -6,6 +6,6 @@
      ARGS = {'scripts': ['bzr'],
 -            'data_files': [('man/man1', ['bzr.1'])],
 +            'data_files': [('share/man/man1', ['bzr.1'])],
-             'cmdclass': {'build': bzr_build,
-                          'install_scripts': my_install_scripts,
-                         },
+             'cmdclass': command_classes,
+             'ext_modules': ext_modules,
+            }
