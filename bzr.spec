@@ -1,12 +1,12 @@
 Summary:	Bazaar - a distributed revision control system
 Summary(pl.UTF-8):	Bazaar - rozproszony system kontroli wersji
 Name:		bzr
-Version:	0.15
+Version:	0.16
 Release:	1
 License:	GPL v2
 Group:		Development/Version Control
 Source0:	http://bazaar-vcs.org/releases/src/%{name}-%{version}.tar.gz
-# Source0-md5:	6512ced21dc26fba0915c50697f74e17
+# Source0-md5:	c72c4ae368d0ffe70cc6e3d49c299a0f
 Patch0:		%{name}-FHS.patch
 URL:		http://bazaar-vcs.org/
 BuildRequires:	python >= 1:2.4
