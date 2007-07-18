@@ -12,8 +12,8 @@ URL:		http://bazaar-vcs.org/
 BuildRequires:	python >= 1:2.4
 BuildRequires:	rpmbuild(macros) >= 1.219
 %pyrequires_eq  python
-Requires:	python-paramico
 Requires:	python-cElementTree
+Requires:	python-paramiko
 Requires:	python-pycurl
 Obsoletes:	bazaar
 BuildArch:	noarch
