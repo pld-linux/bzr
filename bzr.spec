@@ -15,7 +15,6 @@ Requires:	python-cElementTree
 Requires:	python-paramiko
 Requires:	python-pycurl
 Obsoletes:	bazaar
-BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
