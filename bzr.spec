@@ -9,6 +9,7 @@ Source0:	http://bazaar-vcs.org/releases/src/%{name}-%{version}.tar.gz
 # Source0-md5:	b71c7920a157bb508284ad77abcedf94
 URL:		http://bazaar-vcs.org/
 BuildRequires:	python >= 1:2.4
+BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
 %pyrequires_eq  python
 Requires:	python-cElementTree
@@ -66,9 +67,10 @@ rozszerzeń.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__python} setup.py install \
 	--optimize=2 \
-	--install-data /usr/share \
+	--install-data %{_datadir} \
 	--root=$RPM_BUILD_ROOT
 
 %py_postclean
