@@ -2,7 +2,7 @@ Summary:	Bazaar - a distributed revision control system
 Summary(pl.UTF-8):	Bazaar - rozproszony system kontroli wersji
 Name:		bzr
 Version:	1.5
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Development/Version Control
 Source0:	https://launchpad.net/bzr/%{version}/%{version}/+download/%{name}-%{version}.tar.gz
@@ -12,6 +12,8 @@ BuildRequires:	python >= 1:2.4
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
 %pyrequires_eq  python
+# pdb module required by bzr
+Requires:	python-devel-tools   
 Requires:	python-cElementTree
 Requires:	python-paramiko
 Requires:	python-pycurl
