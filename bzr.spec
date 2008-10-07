@@ -4,7 +4,7 @@ Name:		bzr
 %define		ver	1.6
 %define		minor	1
 Version:	%{ver}.%{minor}
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Development/Version Control
 Source0:	https://launchpad.net/bzr/%{ver}/%{version}/+download/%{name}-%{version}.tar.gz
