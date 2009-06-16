@@ -8,7 +8,7 @@ Group:		Development/Version Control
 Source0:	https://launchpad.net/bzr/1.15/1.15final/+download/%{name}-%{version}.tar.gz
 # Source0-md5:	3309f74f1655d7971ca8cc3d4c9e9dfb
 URL:		http://bazaar-vcs.org/
-BuildRequires:	python >= 1:2.5
+BuildRequires:	python >= 1:2.4
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
 %pyrequires_eq  python
@@ -83,7 +83,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc doc/*.txt NEWS README TODO
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/bzr
 %{_mandir}/man1/bzr.1*
 %{py_sitedir}/bzrlib
+%if "%{py_ver}" > "2.4"
 %{py_sitedir}/*.egg-info
+%endif
