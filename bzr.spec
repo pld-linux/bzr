@@ -1,23 +1,23 @@
 Summary:	Bazaar - a distributed revision control system
 Summary(pl.UTF-8):	Bazaar - rozproszony system kontroli wersji
 Name:		bzr
-Version:	0.15
+Version:	2.0.3
 Release:	1
 License:	GPL v2
 Group:		Development/Version Control
-Source0:	http://bazaar-vcs.org/releases/src/%{name}-%{version}.tar.gz
-# Source0-md5:	6512ced21dc26fba0915c50697f74e17
-Patch0:		%{name}-FHS.patch
-URL:		http://bazaar-vcs.org/
+Source0:	http://launchpad.net/bzr/2.0/%{version}/+download/%{name}-%{version}.tar.gz
+# Source0-md5:	60758e61b3fd3686966d7ab0ea17fa64
+URL:		http://bazaar.canonical.com/
 BuildRequires:	python >= 1:2.4
+BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
 %pyrequires_eq  python
-Requires:	python-Crypto
+# pdb module required by bzr
 Requires:	python-cElementTree
-Requires:	python-medusa
+Requires:	python-devel-tools
+Requires:	python-paramiko
 Requires:	python-pycurl
 Obsoletes:	bazaar
-BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -63,15 +63,16 @@ rozszerzeń.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__python} setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__python} setup.py install \
 	--optimize=2 \
+	--install-data %{_datadir} \
 	--root=$RPM_BUILD_ROOT
 
 %py_postclean
@@ -81,7 +82,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc/*.txt HACKING NEWS README TODO
-%attr(755,root,root) %{_bindir}/*
+%doc doc/*.txt NEWS README TODO
+%attr(755,root,root) %{_bindir}/bzr
 %{_mandir}/man1/bzr.1*
-%{py_sitescriptdir}/bzrlib
+%{py_sitedir}/bzrlib
+%if "%{py_ver}" > "2.4"
+%{py_sitedir}/*.egg-info
+%endif
