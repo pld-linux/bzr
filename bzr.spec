@@ -9,8 +9,10 @@ Source0:	http://launchpad.net/bzr/2.1/%{version}/+download/%{name}-%{version}.ta
 # Source0-md5:	ea184d6cfb22cf4e92ee275f593ca88d
 URL:		http://bazaar.canonical.com/
 BuildRequires:	python >= 1:2.4
+BuildRequires:	python-devel
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	zlib-devel
 %pyrequires_eq  python
 # pdb module required by bzr
 Requires:	python-cElementTree
