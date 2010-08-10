@@ -1,12 +1,12 @@
 Summary:	Bazaar - a distributed revision control system
 Summary(pl.UTF-8):	Bazaar - rozproszony system kontroli wersji
 Name:		bzr
-Version:	2.1.2
-Release:	2
+Version:	2.2.0
+Release:	1
 License:	GPL v2
 Group:		Development/Version Control
-Source0:	http://launchpad.net/bzr/2.1/%{version}/+download/%{name}-%{version}.tar.gz
-# Source0-md5:	834d18558b7f3e0f36e3933f8a177506
+Source0:	http://launchpad.net/bzr/2.2/%{version}/+download/%{name}-%{version}.tar.gz
+# Source0-md5:	e47fa50e1fedc01c4761925e9d0d39ac
 URL:		http://bazaar.canonical.com/
 BuildRequires:	python >= 1:2.4
 BuildRequires:	python-devel
@@ -14,8 +14,8 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
 BuildRequires:	zlib-devel
 %pyrequires_eq  python
-# pdb module required by bzr
 Requires:	python-cElementTree
+# pdb module required by bzr
 Requires:	python-devel-tools
 Requires:	python-paramiko
 Requires:	python-pycurl
@@ -71,13 +71,20 @@ rozszerzeń.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__python} setup.py install \
 	--optimize=2 \
 	--install-data %{_datadir} \
 	--root=$RPM_BUILD_ROOT
 
 %py_postclean
+
+# don't package tests
+rm -rf $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/plugins/bash_completion/tests
+rm -rf $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/plugins/launchpad/test_*.py*
+rm -rf $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/plugins/netrc_credential_store/tests
+rm -rf $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/plugins/news_merge/tests
+rm -rf $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/tests
+rm -rf $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/util/tests
 
 %clean
 rm -rf $RPM_BUILD_ROOT
