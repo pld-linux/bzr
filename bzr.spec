@@ -97,6 +97,9 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/etc/bash_completion.d
 install -p bash_completion.sh $RPM_BUILD_ROOT/etc/bash_completion.d/%{name}
 
+# Use independently packaged python-elementtree instead
+rm -rf $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/util/elementtree
+
 # don't package tests
 rm -rf $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/plugins/bash_completion/tests
 rm -rf $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/plugins/launchpad/test_*.py*
