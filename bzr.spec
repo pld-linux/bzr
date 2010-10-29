@@ -2,7 +2,7 @@ Summary:	Bazaar - a distributed revision control system
 Summary(pl.UTF-8):	Bazaar - rozproszony system kontroli wersji
 Name:		bzr
 Version:	2.2.1
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Development/Version Control
 Source0:	http://launchpad.net/bzr/2.2/%{version}/+download/%{name}-%{version}.tar.gz
@@ -65,9 +65,21 @@ Dodatkowe możliwości takie jak: cherry picking, obsługa innych
 systemów kontroli wersji, GUI są dostępne poprzez dodatkowe pakiety
 rozszerzeń.
 
+%package -n bash-completion-%{name}
+Summary:	bash-completion for bzr
+Group:		Applications/Shells
+Requires:	%{name} = %{version}-%{release}
+Requires:	bash-completion
+
+%description -n bash-completion-%{name}
+This package provides bash-completion for bzr.
+
 %prep
 %setup -q
 %patch0 -p0
+
+# move out of contrib, as we package contrib as doc
+mv contrib/bash/bzr bash_completion.sh
 
 %build
 %{__python} setup.py build
@@ -80,6 +92,10 @@ rm -rf $RPM_BUILD_ROOT
 	--root=$RPM_BUILD_ROOT
 
 %py_postclean
+
+# bash-completion
+install -d $RPM_BUILD_ROOT/etc/bash_completion.d
+install -p bash_completion.sh $RPM_BUILD_ROOT/etc/bash_completion.d/%{name}
 
 # don't package tests
 rm -rf $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/plugins/bash_completion/tests
@@ -94,10 +110,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc/*.txt NEWS README TODO
+%doc doc/*.txt NEWS README TODO contrib
 %attr(755,root,root) %{_bindir}/bzr
 %{_mandir}/man1/bzr.1*
 %{py_sitedir}/bzrlib
 %if "%{py_ver}" > "2.4"
 %{py_sitedir}/*.egg-info
 %endif
+
+%files -n bash-completion-%{name}
+%defattr(644,root,root,755)
+/etc/bash_completion.d/%{name}
