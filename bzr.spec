@@ -2,7 +2,7 @@ Summary:	Bazaar - a distributed revision control system
 Summary(pl.UTF-8):	Bazaar - rozproszony system kontroli wersji
 Name:		bzr
 Version:	2.2.1
-Release:	3
+Release:	4
 License:	GPL v2
 Group:		Development/Version Control
 Source0:	http://launchpad.net/bzr/2.2/%{version}/+download/%{name}-%{version}.tar.gz
@@ -116,7 +116,24 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc/*.txt NEWS README TODO contrib
 %attr(755,root,root) %{_bindir}/bzr
 %{_mandir}/man1/bzr.1*
-%{py_sitedir}/bzrlib
+%dir %{py_sitedir}/bzrlib
+%{py_sitedir}/bzrlib/*.py[co]
+%attr(755,root,root) %{py_sitedir}/bzrlib/_*.so
+%{py_sitedir}/bzrlib/bundle
+%{py_sitedir}/bzrlib/doc
+%{py_sitedir}/bzrlib/doc_generate
+%{py_sitedir}/bzrlib/export
+%{py_sitedir}/bzrlib/filters
+%{py_sitedir}/bzrlib/help_topics
+%{py_sitedir}/bzrlib/plugins
+%{py_sitedir}/bzrlib/repofmt
+%{py_sitedir}/bzrlib/smart
+%{py_sitedir}/bzrlib/store
+%{py_sitedir}/bzrlib/transport
+%{py_sitedir}/bzrlib/ui
+%{py_sitedir}/bzrlib/util
+%{py_sitedir}/bzrlib/version_info_formats
+
 %if "%{py_ver}" > "2.4"
 %{py_sitedir}/*.egg-info
 %endif
