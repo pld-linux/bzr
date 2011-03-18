@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	Bazaar - rozproszony system kontroli wersji
 Name:		bzr
 Version:	2.3.1
 Release:	1
-License:	GPL v2
+License:	GPL v2+
 Group:		Development/Version Control
 Source0:	http://launchpad.net/bzr/2.3/%{version}/+download/%{name}-%{version}.tar.gz
 # Source0-md5:	1a4367ce59a2880f321ecb882e195856
