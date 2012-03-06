@@ -7,6 +7,7 @@ License:	GPL v2+
 Group:		Development/Version Control
 Source0:	http://launchpad.net/bzr/2.5/%{version}/+download/%{name}-%{version}.tar.gz
 # Source0-md5:	44eb47b77995098a28f017e2daa606b6
+Patch0:		locale-path.patch
 URL:		http://bazaar.canonical.com/
 BuildRequires:	python >= 1:2.6
 BuildRequires:	python-devel
@@ -74,6 +75,7 @@ This package provides bash-completion for bzr.
 
 %prep
 %setup -q
+%patch0 -p1
 
 # move out of contrib, as we package contrib as doc
 mv contrib/bash/bzr bash_completion.sh
