@@ -107,6 +107,9 @@ rm -rf $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/plugins/news_merge/tests
 rm -rf $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/tests
 rm -rf $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/util/tests
 
+# sco locale is not supported by glibc
+rm -rf $RPM_BUILD_ROOT%{_localedir}/sco
+
 %find_lang %{name}
 
 %clean
