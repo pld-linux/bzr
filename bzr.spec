@@ -1,14 +1,14 @@
 Summary:	Bazaar - a distributed revision control system
 Summary(pl.UTF-8):	Bazaar - rozproszony system kontroli wersji
 Name:		bzr
-Version:	2.4.2
+Version:	2.5.0
 Release:	1
 License:	GPL v2+
 Group:		Development/Version Control
-Source0:	http://launchpad.net/bzr/2.4/%{version}/+download/%{name}-%{version}.tar.gz
-# Source0-md5:	cfc06fddd348445c65a247c0b33a05db
+Source0:	http://launchpad.net/bzr/2.5/%{version}/+download/%{name}-%{version}.tar.gz
+# Source0-md5:	44eb47b77995098a28f017e2daa606b6
 URL:		http://bazaar.canonical.com/
-BuildRequires:	python >= 1:2.4
+BuildRequires:	python >= 1:2.6
 BuildRequires:	python-devel
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
@@ -105,10 +105,12 @@ rm -rf $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/plugins/news_merge/tests
 rm -rf $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/tests
 rm -rf $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/util/tests
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc doc/*.txt NEWS README TODO contrib
 %attr(755,root,root) %{_bindir}/bzr
@@ -130,10 +132,7 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/bzrlib/ui
 %{py_sitedir}/bzrlib/util
 %{py_sitedir}/bzrlib/version_info_formats
-
-%if "%{py_ver}" > "2.4"
 %{py_sitedir}/*.egg-info
-%endif
 
 %files -n bash-completion-%{name}
 %defattr(644,root,root,755)
