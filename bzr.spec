@@ -21,8 +21,8 @@ Requires:	python-cElementTree
 Requires:	python-devel-tools
 Requires:	python-paramiko
 Requires:	python-pycurl
-Conflicts:      qbzr < 0.22
 Obsoletes:	bazaar
+Conflicts:	qbzr < 0.22
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
