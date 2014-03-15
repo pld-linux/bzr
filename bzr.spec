@@ -15,7 +15,7 @@ BuildRequires:	python-devel
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
 BuildRequires:	zlib-devel
-%pyrequires_eq  python
+Requires:	python
 Requires:	python-cElementTree
 # pdb module required by bzr
 Requires:	python-devel-tools
@@ -71,6 +71,9 @@ Summary:	bash-completion for bzr
 Group:		Applications/Shells
 Requires:	%{name} = %{version}-%{release}
 Requires:	bash-completion
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description -n bash-completion-%{name}
 This package provides bash-completion for bzr.
