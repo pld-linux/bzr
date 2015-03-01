@@ -2,7 +2,7 @@ Summary:	Bazaar - a distributed revision control system
 Summary(pl.UTF-8):	Bazaar - rozproszony system kontroli wersji
 Name:		bzr
 Version:	2.6.0
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Development/Version Control
 # https://launchpad.net/bzr/2.6/2.6.0/+download/bzr-2.6.0.tar.gz
