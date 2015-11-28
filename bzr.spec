@@ -88,12 +88,11 @@ This package provides bash-completion for bzr.
 mv contrib/bash/bzr bash_completion.sh
 
 %build
-%{__python} setup.py build
+%py_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__python} setup.py install \
-	--optimize=2 \
+%py_install \
 	--install-data %{_datadir} \
 	--root=$RPM_BUILD_ROOT
 
