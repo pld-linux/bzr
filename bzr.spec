@@ -14,7 +14,7 @@ URL:		http://bazaar.canonical.com/
 BuildRequires:	python >= 1:2.6
 BuildRequires:	python-devel
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	rpmbuild(macros) >= 1.710
 BuildRequires:	zlib-devel
 Requires:	python
 Requires:	python-cElementTree
