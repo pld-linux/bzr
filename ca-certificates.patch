@@ -1,11 +1,10 @@
-diff -uNr bzr-2.5.1.old/bzrlib/transport/http/_urllib2_wrappers.py bzr-2.5.1/bzrlib/transport/http/_urllib2_wrappers.py
---- bzr-2.5.1.old/bzrlib/transport/http/_urllib2_wrappers.py	2012-05-22 17:10:04.000000000 +0200
-+++ bzr-2.5.1/bzrlib/transport/http/_urllib2_wrappers.py	2012-06-06 12:44:17.028256769 +0200
-@@ -85,6 +85,7 @@
-     u"/usr/local/share/certs/ca-root-nss.crt", # FreeBSD
-     # XXX: Needs checking, can't trust the interweb ;) -- vila 2012-01-25
-     u'/etc/openssl/certs/ca-certificates.crt', # Solaris
+--- bzr-2.7.0/bzrlib/transport/http/_urllib2_wrappers.py.orig	2016-03-18 19:08:49.765967428 +0100
++++ bzr-2.7.0/bzrlib/transport/http/_urllib2_wrappers.py	2016-03-18 19:35:19.875900698 +0100
+@@ -88,6 +88,7 @@
+ # Note for packagers: if there is no package providing certs for your platform,
+ # the curl project produces http://curl.haxx.se/ca/cacert.pem weekly.
+ _ssl_ca_certs_known_locations = [
 +    u'/etc/certs/ca-certificates.crt', # PLD Linux
-     ]
- def default_ca_certs():
-     if sys.platform == 'win32':
+     u'/etc/ssl/certs/ca-certificates.crt',  # Ubuntu/debian/gentoo
+     u'/etc/pki/tls/certs/ca-bundle.crt',  # Fedora/CentOS/RH
+     u'/etc/ssl/ca-bundle.pem',  # OpenSuse

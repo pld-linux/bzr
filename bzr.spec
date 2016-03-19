@@ -1,27 +1,25 @@
+# TODO: python3 when supported upstream (currently it uses cobjects, whith don't exist in python 3.2+)
+
 Summary:	Bazaar - a distributed revision control system
 Summary(pl.UTF-8):	Bazaar - rozproszony system kontroli wersji
 Name:		bzr
-Version:	2.6.0
-Release:	2
+Version:	2.7.0
+Release:	1
 License:	GPL v2+
 Group:		Development/Version Control
-# https://launchpad.net/bzr/2.6/2.6.0/+download/bzr-2.6.0.tar.gz
-Source0:	http://launchpad.net/bzr/2.6/%{version}/+download/%{name}-%{version}.tar.gz
-# Source0-md5:	28c86653d0df10d202c6b842deb0ea35
+#Source0Download: https://launchpad.net/bzr/+download
+Source0:	https://launchpad.net/bzr/2.7/%{version}/+download/%{name}-%{version}.tar.gz
+# Source0-md5:	8e5020502efd54f5925a14a456b88b89
 Patch0:		locale-path.patch
 Patch1:		ca-certificates.patch
 URL:		http://bazaar.canonical.com/
 BuildRequires:	python >= 1:2.6
-BuildRequires:	python-devel
+BuildRequires:	python-devel >= 1:2.6
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.710
+BuildRequires:	rpmbuild(macros) >= 1.714
 BuildRequires:	zlib-devel
-Requires:	python
-Requires:	python-cElementTree
-# pdb module required by bzr
-Requires:	python-devel-tools
-Requires:	python-paramiko
-Requires:	python-pycurl
+Requires:	python >= 1:2.6
+Requires:	python-bzr = %{version}-%{release}
 Obsoletes:	bazaar
 Conflicts:	qbzr < 0.22
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -67,6 +65,25 @@ Dodatkowe możliwości takie jak: cherry picking, obsługa innych
 systemów kontroli wersji, GUI są dostępne poprzez dodatkowe pakiety
 rozszerzeń.
 
+%package -n python-bzr
+Summary:	Bazaar library for Python 2
+Summary(pl.UTF-8):	Biblioteka Bazaar dla Pythona 2
+Group:		Libraries/Python
+# pdb module required by bzr
+Requires:	python-devel-tools >= 1:2.6
+Requires:	python-paramiko
+Requires:	python-pycurl
+
+%description -n python-bzr
+Bazaar is a friendly distributed version control system.
+
+This package contains Python 2 library.
+
+%description -n python-bzr -l pl.UTF-8
+Bazaar to przyjazny, rozproszony system kontroli wersji.
+
+Ten pakiet zawiera bibliotekę Pythona 2.
+
 %package -n bash-completion-%{name}
 Summary:	bash-completion for bzr
 Group:		Applications/Shells
@@ -85,16 +102,25 @@ This package provides bash-completion for bzr.
 %patch1 -p1
 
 # move out of contrib, as we package contrib as doc
-mv contrib/bash/bzr bash_completion.sh
+%{__mv} contrib/bash/bzr bash_completion.sh
 
 %build
 %py_build
 
+%if 0
+%py3_build
+%endif
+
 %install
 rm -rf $RPM_BUILD_ROOT
+
+%if 0
+%py3_install \
+	--install-data %{_datadir}
+%endif
+
 %py_install \
-	--install-data %{_datadir} \
-	--root=$RPM_BUILD_ROOT
+	--install-data %{_datadir}
 
 %py_postclean
 
@@ -102,19 +128,25 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/etc/bash_completion.d
 install -p bash_completion.sh $RPM_BUILD_ROOT/etc/bash_completion.d/%{name}
 
-# Use independently packaged python-elementtree instead
-rm -rf $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/util/elementtree
-
 # don't package tests
-rm -rf $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/plugins/bash_completion/tests
-rm -rf $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/plugins/launchpad/test_*.py*
-rm -rf $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/plugins/netrc_credential_store/tests
-rm -rf $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/plugins/news_merge/tests
-rm -rf $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/tests
-rm -rf $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/util/tests
+%{__rm} -r $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/plugins/bash_completion/tests
+%{__rm} -r $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/plugins/launchpad/test_*.py*
+%{__rm} -r $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/plugins/netrc_credential_store/tests
+%{__rm} -r $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/plugins/news_merge/tests
+%{__rm} -r $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/tests
+%{__rm} -r $RPM_BUILD_ROOT%{py_sitedir}/bzrlib/util/tests
+
+%if 0
+%{__rm} -r $RPM_BUILD_ROOT%{py3_sitedir}/bzrlib/plugins/bash_completion/tests
+%{__rm} -r $RPM_BUILD_ROOT%{py3_sitedir}/bzrlib/plugins/launchpad/test_*.py*
+%{__rm} -r $RPM_BUILD_ROOT%{py3_sitedir}/bzrlib/plugins/netrc_credential_store/tests
+%{__rm} -r $RPM_BUILD_ROOT%{py3_sitedir}/bzrlib/plugins/news_merge/tests
+%{__rm} -r $RPM_BUILD_ROOT%{py3_sitedir}/bzrlib/tests
+%{__rm} -r $RPM_BUILD_ROOT%{py3_sitedir}/bzrlib/util/tests
+%endif
 
 # sco locale is not supported by glibc
-rm -rf $RPM_BUILD_ROOT%{_localedir}/sco
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/sco
 
 %find_lang %{name}
 
@@ -126,6 +158,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc/*.txt NEWS README TODO contrib
 %attr(755,root,root) %{_bindir}/bzr
 %{_mandir}/man1/bzr.1*
+
+%files -n python-bzr
+%defattr(644,root,root,755)
 %dir %{py_sitedir}/bzrlib
 %{py_sitedir}/bzrlib/*.py[co]
 %attr(755,root,root) %{py_sitedir}/bzrlib/_*.so
@@ -144,7 +179,7 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/bzrlib/ui
 %{py_sitedir}/bzrlib/util
 %{py_sitedir}/bzrlib/version_info_formats
-%{py_sitedir}/*.egg-info
+%{py_sitedir}/bzr-%{version}-py*.egg-info
 
 %files -n bash-completion-%{name}
 %defattr(644,root,root,755)
