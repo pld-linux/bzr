@@ -89,9 +89,7 @@ Summary:	bash-completion for bzr
 Group:		Applications/Shells
 Requires:	%{name} = %{version}-%{release}
 Requires:	bash-completion
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description -n bash-completion-%{name}
 This package provides bash-completion for bzr.
