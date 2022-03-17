@@ -15,12 +15,13 @@ Patch1:		ca-certificates.patch
 URL:		http://bazaar.canonical.com/
 BuildRequires:	python >= 1:2.6
 BuildRequires:	python-devel >= 1:2.6
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 BuildRequires:	zlib-devel
 Requires:	python >= 1:2.6
 Requires:	python-bzr = %{version}-%{release}
-Obsoletes:	bazaar
+Obsoletes:	bazaar < 1.5
 Conflicts:	qbzr < 0.22
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
