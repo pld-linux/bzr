@@ -97,8 +97,8 @@ This package provides bash-completion for bzr.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 
 # move out of contrib, as we package contrib as doc
 %{__mv} contrib/bash/bzr bash_completion.sh
